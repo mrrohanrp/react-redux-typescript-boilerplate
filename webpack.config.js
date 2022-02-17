@@ -141,15 +141,18 @@ module.exports = {
     })
   ].filter(Boolean),
   devServer: {
-    contentBase: sourcePath,
+    static: {
+      directory: sourcePath
+    },
     hot: true,
-    inline: true,
     historyApiFallback: {
       disableDotRule: true
     },
-    stats: 'minimal',
-    clientLogLevel: 'warning'
+    client: {
+      logging: 'warn'
+    }
   },
+  stats: 'minimal',
   // https://webpack.js.org/configuration/devtool/
   devtool: isProduction ? 'hidden-source-map' : 'eval-cheap-module-source-map'
 };
