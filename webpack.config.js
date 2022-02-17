@@ -13,7 +13,7 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: isProduction ? "production" : "development",
+  mode: isProduction ? 'production' : 'development',
   context: sourcePath,
   entry: {
     app: './main.tsx'
@@ -81,13 +81,13 @@ module.exports = {
                     disabled: isProduction
                   })
                 ]
-              },
+              }
             }
           }
         ]
       },
       // static assets
-      { test: /\.html$/, use: 'html-loader'},
+      { test: /\.html$/, use: 'html-loader' },
       { test: /\.(a?png|svg)$/, type: 'asset/inline' },
       { test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/, type: 'asset/resource' }
     ]
@@ -116,9 +116,11 @@ module.exports = {
       DEBUG: false
     }),
     new CleanWebpackPlugin(),
-    isProduction ? new MiniCssExtractPlugin({
-      filename: '[contenthash].css'
-    }) : false,
+    isProduction
+      ? new MiniCssExtractPlugin({
+          filename: '[contenthash].css'
+        })
+      : false,
     new HtmlWebpackPlugin({
       template: 'assets/index.html',
       minify: {
