@@ -3,21 +3,19 @@ import style from './style.css';
 import classNames from 'classnames';
 import { TodoModel } from 'app/models';
 
+export interface IProps {
+  filter: TodoModel.Filter;
+  activeCount?: number;
+  completedCount?: number;
+  onClickFilter: (filter: TodoModel.Filter) => any;
+  onClickClearCompleted: () => any;
+}
+
 export const FILTER_TITLES = {
   [TodoModel.Filter.SHOW_ALL]: 'All',
   [TodoModel.Filter.SHOW_ACTIVE]: 'Active',
   [TodoModel.Filter.SHOW_COMPLETED]: 'Completed'
 };
-
-export namespace Footer {
-  export interface Props {
-    filter: TodoModel.Filter;
-    activeCount?: number;
-    completedCount?: number;
-    onClickFilter: (filter: TodoModel.Filter) => any;
-    onClickClearCompleted: () => any;
-  }
-}
 
 export const Footer = ({
   filter,
@@ -25,7 +23,7 @@ export const Footer = ({
   completedCount,
   onClickFilter,
   onClickClearCompleted
-}: Footer.Props): JSX.Element => {
+}: IProps): JSX.Element => {
   const renderTodoCount = React.useCallback((): JSX.Element => {
     const itemWord = activeCount === 1 ? ' item' : 'items';
     return (

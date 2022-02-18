@@ -5,16 +5,14 @@ import { TodoModel } from 'app/models';
 import { TodoActions } from 'app/actions';
 import { TodoTextInput } from '../TodoTextInput';
 
-export namespace TodoItem {
-  export interface Props {
-    todo: TodoModel;
-    editTodo: typeof TodoActions.editTodo;
-    deleteTodo: typeof TodoActions.deleteTodo;
-    completeTodo: typeof TodoActions.completeTodo;
-  }
+export interface IProps {
+  todo: TodoModel;
+  editTodo: typeof TodoActions.editTodo;
+  deleteTodo: typeof TodoActions.deleteTodo;
+  completeTodo: typeof TodoActions.completeTodo;
 }
 
-export const TodoItem = ({ todo, editTodo, deleteTodo, completeTodo }: TodoItem.Props) => {
+export const TodoItem = ({ todo, editTodo, deleteTodo, completeTodo }: IProps) => {
   const [editing, setEditing] = useState(false);
 
   const handleDoubleClick = React.useCallback(() => {

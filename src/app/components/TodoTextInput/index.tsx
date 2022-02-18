@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import style from './style.css';
 
-export namespace TodoTextInput {
-  export interface Props {
-    placeholder?: string;
-    newTodo?: boolean;
-    onSave: (text: string) => void;
-  }
-
-  export interface State {
-    text: string;
-  }
+export interface IProps {
+  placeholder?: string;
+  newTodo?: boolean;
+  onSave: (text: string) => void;
 }
 
-export const TodoTextInput = ({ placeholder, newTodo, onSave }: TodoTextInput.Props): JSX.Element => {
+export interface IState {
+  text: string;
+}
+
+export const TodoTextInput = ({ placeholder, newTodo, onSave }: IProps): JSX.Element => {
   const [inputText, setInputText] = useState('');
 
   const handleSubmit = React.useCallback(

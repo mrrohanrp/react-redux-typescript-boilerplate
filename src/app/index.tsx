@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
-import { App as TodoApp } from 'app/containers/App';
+import TodoApp from 'app/containers/App';
 
 export const App = () => (
   <Routes>

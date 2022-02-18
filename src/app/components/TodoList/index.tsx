@@ -4,14 +4,12 @@ import { TodoActions } from 'app/actions/todos';
 import { TodoItem } from '../TodoItem';
 import { TodoModel } from 'app/models/TodoModel';
 
-export namespace TodoList {
-  export interface Props {
-    todos: TodoModel[];
-    actions: TodoActions;
-  }
+export interface IProps {
+  todos: TodoModel[];
+  actions: TodoActions;
 }
 
-export const TodoList = ({ todos, actions }: TodoList.Props): JSX.Element => {
+export const TodoList = ({ todos, actions }: IProps): JSX.Element => {
   const hasIncompleted = React.useMemo(() => todos.some((todo) => !todo.completed), []);
   return (
     <section className={style.main}>

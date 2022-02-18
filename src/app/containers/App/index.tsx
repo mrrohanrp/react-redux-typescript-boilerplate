@@ -17,8 +17,8 @@ const FILTER_FUNCTIONS: Record<TodoModel.Filter, (todo: TodoModel) => boolean> =
   [TodoModel.Filter.SHOW_COMPLETED]: (todo) => todo.completed
 };
 
-export const App = () => {
-  let navigate = useNavigate();
+const App = () => {
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const todoActions = useTodoActions(dispatch);
@@ -59,3 +59,5 @@ export const App = () => {
     </div>
   );
 };
+
+export default App;
