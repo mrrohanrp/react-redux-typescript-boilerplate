@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './style.css';
-import { RouteComponentProps } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTodoActions } from 'app/actions';
 import { RootState } from 'app/reducers';
 import { TodoModel } from 'app/models';
 import { Header, TodoList, Footer } from 'app/components';
+import { useNavigate } from 'react-router-dom';
 
 const FILTER_VALUES = (Object.keys(TodoModel.Filter) as (keyof typeof TodoModel.Filter)[]).map(
   (key) => TodoModel.Filter[key]
@@ -17,11 +17,9 @@ const FILTER_FUNCTIONS: Record<TodoModel.Filter, (todo: TodoModel) => boolean> =
   [TodoModel.Filter.SHOW_COMPLETED]: (todo) => todo.completed
 };
 
-export namespace App {
-  export interface Props extends RouteComponentProps<void> {}
-}
+export const App = () => {
+  let navigate = useNavigate();
 
-export const App = ({ history, location }: App.Props) => {
   const dispatch = useDispatch();
   const todoActions = useTodoActions(dispatch);
   const { todos, filter } = useSelector((state: RootState) => {
@@ -38,9 +36,9 @@ export const App = ({ history, location }: App.Props) => {
 
   const handleFilterChange = React.useCallback(
     (filter: TodoModel.Filter): void => {
-      history.push(`#${filter}`);
+      navigate(`#${filter}`);
     },
-    [history]
+    [navigate]
   );
 
   const filteredTodos = React.useMemo(() => (filter ? todos.filter(FILTER_FUNCTIONS[filter]) : todos), [todos, filter]);
