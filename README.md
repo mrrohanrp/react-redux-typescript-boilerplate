@@ -9,11 +9,11 @@ Ideal for creating React apps from the scratch.
 
 ## Contains
 
-- [x] [Typescript](https://www.typescriptlang.org/) 4.3
+- [x] [Typescript](https://www.typescriptlang.org/) 4.5
 - [x] [React](https://facebook.github.io/react/) 17
 - [x] [Redux](https://github.com/reactjs/redux) 4
-- [x] [Redux Thunk](https://github.com/reduxjs/redux-thunk) 2.3
-- [x] [React Router](https://github.com/ReactTraining/react-router) 5.2
+- [x] [Redux Thunk](https://github.com/reduxjs/redux-thunk) 2.4
+- [x] [React Router Dom](https://github.com/remix-run/react-router) 6.2
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [x] [TodoMVC example](http://todomvc.com)
 
@@ -32,7 +32,7 @@ Ideal for creating React apps from the scratch.
 ## Installation
 
 ```
-$ npm ci
+$ npm install
 ```
 
 ## Running

@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "private": true,
   "description": "A frontend boilerplate with React hooks, Redux and Typescript",
-  "homepage": "https://rokoroku.github.io/react-redux-typescript-boilerplate",
+  "homepage": "https://mrrohanrp.github.io/react-redux-typescript-boilerplate",
   "keywords": [
     "react",
     "hooks",
