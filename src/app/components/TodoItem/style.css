@@ -1,22 +1,24 @@
 .normal .toggle {
   text-align: center;
   width: 40px;
+
   /* auto, since non-WebKit browsers doesn't support input styling */
   height: auto;
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto 0;
+
   /* Mobile Safari */
   border: none;
   appearance: none;
 }
 
-.normal .toggle:after {
+.normal .toggle::after {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="%23ededed" stroke-width="3"/></svg>');
 }
 
-.normal .toggle:checked:after {
+.normal .toggle:checked::after {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="%23bddad5" stroke-width="3"/><path fill="%235dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 
@@ -49,7 +51,7 @@
   color: #af5b5e;
 }
 
-.normal .destroy:after {
+.normal .destroy::after {
   content: '×';
 }
 
@@ -64,7 +66,6 @@
 .editing {
   border-bottom: none;
   padding: 0;
-  composes: normal;
 }
 
 .editing:last-child {
@@ -74,7 +75,7 @@
 .editing .edit {
   display: block;
   width: 506px;
-  padding: 13px 17px 12px 17px;
+  padding: 13px 17px 12px;
   margin: 0 0 0 43px;
 }
 
@@ -92,11 +93,9 @@
   Can't use it globally since it destroys checkboxes in Firefox
 */
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media screen and (max-width: 320px) {
   .normal .toggle {
     background: none;
-  }
-  .normal .toggle {
     height: 40px;
   }
 }

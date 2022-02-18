@@ -25,10 +25,14 @@
   padding: 0;
 }
 
+.normal li .edit {
+  display: none;
+}
+
 .normal li.editing .edit {
   display: block;
   width: 506px;
-  padding: 13px 17px 12px 17px;
+  padding: 13px 17px 12px;
   margin: 0 0 0 43px;
 }
 
@@ -39,22 +43,24 @@
 .normal li .toggle {
   text-align: center;
   width: 40px;
+
   /* auto, since non-WebKit browsers doesn't support input styling */
   height: auto;
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto 0;
+
   /* Mobile Safari */
   border: none;
   appearance: none;
 }
 
-.normal li .toggle:after {
+.normal li .toggle::after {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
 }
 
-.normal li .toggle:checked:after {
+.normal li .toggle:checked::after {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 
@@ -92,16 +98,12 @@
   color: #af5b5e;
 }
 
-.normal li .destroy:after {
+.normal li .destroy::after {
   content: '×';
 }
 
 .normal li:hover .destroy {
   display: block;
-}
-
-.normal li .edit {
-  display: none;
 }
 
 .normal li.editing:last-child {
@@ -116,17 +118,18 @@
   height: 34px;
   text-align: center;
   border: none;
+
   /* Mobile Safari */
 }
 
-.toggleAll:before {
+.toggleAll::before {
   content: '❯';
   font-size: 22px;
   color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
+  padding: 10px 27px;
 }
 
-.toggleAll:checked:before {
+.toggleAll:checked::before {
   color: #737373;
 }
 
@@ -135,14 +138,16 @@
   Can't use it globally since it destroys checkboxes in Firefox
 */
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media screen and (min-width: 320px) {
   .toggleAll,
   .normal li .toggle {
     background: none;
   }
+
   .normal li .toggle {
     height: 40px;
   }
+
   .toggleAll {
     transform: rotate(90deg);
     appearance: none;
