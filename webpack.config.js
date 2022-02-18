@@ -43,8 +43,7 @@ module.exports = {
         test: /\.tsx?$/,
         use: [
           !isProduction && {
-            loader: 'babel-loader',
-            options: { plugins: ['react-hot-loader/babel'] }
+            loader: 'babel-loader'
           },
           'ts-loader'
         ].filter(Boolean)

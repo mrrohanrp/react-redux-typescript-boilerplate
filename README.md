@@ -26,7 +26,6 @@ Ideal for creating React apps from the scratch.
 - [x] [PostCSS Loader](https://github.com/postcss/postcss-loader)
   - [x] [PostCSS Preset Env](https://preset-env.cssdb.org/)
   - [x] [CSS modules](https://github.com/css-modules/css-modules)
-- [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 - [x] [Mini CSS Extract Plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
 - [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
 
