@@ -1,7 +1,6 @@
 {
   "name": "react-hooks-redux-typescript-boilerplate",
   "version": "1.1.1",
-  "private": true,
   "description": "A frontend boilerplate with React hooks, Redux and Typescript",
   "homepage": "https://mrrohanrp.github.io/react-redux-typescript-boilerplate",
   "keywords": [
@@ -13,6 +12,8 @@
     "todomvc"
   ],
   "main": "index.js",
+  "author": "mrrohanrp",
+  "license": "ISC",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -25,9 +26,19 @@
     "stylelint:fix": "stylelint \"./src/**/*.{css,scss}\" --fix",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\" --config ./.prettierrc",
     "lintall": "npm run lint && npm run stylelint",
-    "lintall:fix": "npm run lint:fix && npm run stylelint:fix"
+    "lintall:fix": "npm run lint:fix && npm run stylelint:fix",
+    "prepare": "husky install"
   },
-  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "redux": "^4.1.2",
+    "redux-actions": "^2.6.5",
+    "redux-thunk": "^2.4.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@types/classnames": "^2.3.0",
@@ -55,6 +66,8 @@
     "gh-pages": "^3.2.3",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
     "mini-css-extract-plugin": "^2.5.3",
     "postcss": "^8.4.6",
     "postcss-browser-reporter": "^0.6.0",
@@ -77,14 +90,14 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
   },
-  "dependencies": {
-    "classnames": "^2.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1",
-    "redux": "^4.1.2",
-    "redux-actions": "^2.6.5",
-    "redux-thunk": "^2.4.1"
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "**/*.{scss,css}": [
+      "stylelint --cache --fix",
+      "prettier --write"
+    ]
   }
 }
