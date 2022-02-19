@@ -1,6 +1,6 @@
 import React from 'react';
 import { TodoTextInput } from '../TodoTextInput';
-import { TodoActions } from 'app/actions/todos';
+import { TodoActions } from 'app/store/actionTypes';
 
 export interface IProps {
   addTodo: typeof TodoActions.addTodo;

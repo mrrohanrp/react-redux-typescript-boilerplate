@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './style.css';
-import { TodoActions } from 'app/actions/todos';
+import { TodoActions } from 'app/store/actionTypes';
 import { TodoItem } from '../TodoItem';
 import { TodoModel } from 'app/models/TodoModel';
 

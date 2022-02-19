@@ -1,7 +1,8 @@
-import { handleActions } from 'redux-actions';
+// import { handleActions } from 'redux-actions';
 import { RootState } from './state';
-import { TodoActions } from 'app/actions/todos';
-import { TodoModel } from 'app/models';
+import { ADD_TODO, CLEAR_COMPLETED, COMPLETE_ALL, COMPLETE_TODO, DELETE_TODO, EDIT_TODO } from 'app/store/actionTypes';
+import { TodoActions } from '../actions';
+// import { TodoModel } from 'app/models';
 
 const initialState: RootState.TodoState = [
   {
@@ -11,6 +12,56 @@ const initialState: RootState.TodoState = [
   }
 ];
 
+export default function todoReducer(
+  state: RootState.TodoState = initialState,
+  action: TodoActions
+): RootState.TodoState {
+  switch (action.type) {
+    case ADD_TODO: {
+      if (action.payload && action.payload.text) {
+        return [
+          {
+            id: state.reduce((max, todo) => Math.max(todo.id || 1, max), 0) + 1,
+            completed: false,
+            text: action.payload.text
+          },
+          ...state
+        ];
+      }
+      return state;
+    }
+
+    case DELETE_TODO: {
+      return state.filter((todo) => todo.id !== action.payload.id);
+    }
+
+    case EDIT_TODO: {
+      return state.map((todo) => {
+        if (!todo || !action || !action.payload) {
+          return todo;
+        }
+        return (todo.id || 0) === action.payload.id ? { ...todo, text: action.payload.text } : todo;
+      });
+    }
+
+    case COMPLETE_TODO: {
+      return state.map((todo) => (todo.id === action.payload.id ? { ...todo, completed: !todo.completed } : todo));
+    }
+
+    case COMPLETE_ALL: {
+      return state.map((todo) => ({ ...todo, completed: true }));
+    }
+
+    case CLEAR_COMPLETED: {
+      return state.filter((todo) => todo.completed === false);
+    }
+
+    default:
+      return state;
+  }
+}
+
+/*
 export const todoReducer = handleActions<RootState.TodoState, TodoModel>(
   {
     [TodoActions.Type.ADD_TODO]: (state, action) => {
@@ -50,4 +101,4 @@ export const todoReducer = handleActions<RootState.TodoState, TodoModel>(
     }
   },
   initialState
-);
+); */

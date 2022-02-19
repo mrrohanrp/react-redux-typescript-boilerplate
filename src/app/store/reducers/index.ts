@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { RootState } from './state';
-import { todoReducer } from './todos';
+import todoReducer from './todoReducer';
 
 export { RootState };
 

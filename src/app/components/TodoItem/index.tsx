@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import style from './style.css';
 import { TodoModel } from 'app/models';
-import { TodoActions } from 'app/actions';
+import { TodoActions } from 'app/store/actions';
 import { TodoTextInput } from '../TodoTextInput';
 
 export interface IProps {

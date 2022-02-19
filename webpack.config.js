@@ -16,7 +16,7 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   context: sourcePath,
   entry: {
-    app: './main.tsx'
+    app: './index.tsx'
   },
   output: {
     path: outPath,

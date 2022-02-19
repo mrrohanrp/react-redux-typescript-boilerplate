@@ -11,7 +11,7 @@
     "boilerplate",
     "todomvc"
   ],
-  "main": "index.js",
+  "main": "index.tsx",
   "author": "mrrohanrp",
   "license": "ISC",
   "scripts": {

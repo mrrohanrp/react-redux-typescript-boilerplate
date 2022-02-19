@@ -1,8 +1,8 @@
 import React from 'react';
 import style from './style.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTodoActions } from 'app/actions';
-import { RootState } from 'app/reducers';
+import { useTodoActions } from 'app/store/actions';
+import { RootState } from 'app/store/reducers';
 import { TodoModel } from 'app/models';
 import { Header, TodoList, Footer } from 'app/components';
 import { useNavigate } from 'react-router-dom';

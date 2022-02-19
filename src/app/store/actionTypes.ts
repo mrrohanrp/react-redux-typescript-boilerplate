@@ -1,9 +1,16 @@
-import { useMemo } from 'react';
+/* import { useMemo } from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
 import { createAction } from 'redux-actions';
-import { TodoModel } from 'app/models';
+import { TodoModel } from 'app/models'; */
 
-export namespace TodoActions {
+export const ADD_TODO = 'ADD_TODO';
+export const EDIT_TODO = 'EDIT_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
+export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const COMPLETE_ALL = 'COMPLETE_ALL';
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+
+/* export namespace TodoActions {
   export enum Type {
     ADD_TODO = 'ADD_TODO',
     EDIT_TODO = 'EDIT_TODO',
@@ -19,10 +26,11 @@ export namespace TodoActions {
   export const completeTodo = createAction<TodoModel['id']>(Type.COMPLETE_TODO);
   export const completeAll = createAction(Type.COMPLETE_ALL);
   export const clearCompleted = createAction(Type.CLEAR_COMPLETED);
-}
-
+} */
+/*
 export type TodoActions = Omit<typeof TodoActions, 'Type'>;
 export const useTodoActions = (dispatch: Dispatch) => {
   const { Type, ...actions } = TodoActions;
   return useMemo(() => bindActionCreators(actions as any, dispatch), [dispatch]) as TodoActions;
 };
+ */

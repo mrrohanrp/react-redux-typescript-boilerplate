@@ -5,6 +5,4 @@ export interface RootState {
   router?: any;
 }
 
-export namespace RootState {
-  export type TodoState = TodoModel[];
-}
+export type TodoState = TodoModel[];
