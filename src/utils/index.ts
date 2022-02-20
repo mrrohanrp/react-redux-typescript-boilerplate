@@ -4,5 +4,6 @@ export function omit<T extends object, K extends keyof T>(target: T, ...omitKeys
       res[key] = target[key];
     }
     return res;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }, {} as any);
 }

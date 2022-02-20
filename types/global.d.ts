@@ -2,10 +2,13 @@
 
 // for style loader
 declare module '*.css' {
-  const styles: any;
-  export = styles;
+  const styles: Record<string, string>;
+  export default styles;
 }
 
-// Omit type https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+/**
+ * Make all properties in T optional
+ * and
+ * From T, pick a set of properties whose keys are in the union K
+ */
 type PartialPick<T, K extends keyof T> = Partial<T> & Pick<T, K>;

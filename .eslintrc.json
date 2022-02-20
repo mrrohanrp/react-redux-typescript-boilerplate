@@ -34,7 +34,7 @@
   "rules": {
     // no variable declaration
     "no-var": "error",
-    "no-undef": "error",
+    // "no-undef": "error", //for Typescript interface/types
     "prefer-destructuring": "warn",
     /** React Standard (https://github.com/yannickcr/eslint-plugin-react) */
     "react/jsx-key": [
