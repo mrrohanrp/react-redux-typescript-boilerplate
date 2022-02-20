@@ -58,7 +58,10 @@ module.exports = {
             options: {
               sourceMap: !isProduction,
               importLoaders: 1,
+              // modules support
+              // https://webpack.js.org/loaders/css-loader/#boolean-3
               modules: {
+                auto: true,
                 localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
               }
             }

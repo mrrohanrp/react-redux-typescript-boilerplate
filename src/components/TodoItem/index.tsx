@@ -4,7 +4,7 @@ import { useAppDispatch } from 'src/store/hooks';
 import { COMPLETETODO, DELETETODO, EDITTODO } from 'src/store/todoSlice';
 import { TodoModel } from 'src/models';
 import { TodoTextInput } from '../TodoTextInput';
-import style from './style.css';
+import style from './style.module.css';
 
 export interface IProps {
   todo: TodoModel;

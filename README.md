@@ -1,5 +1,7 @@
 # Frontend Boilerplate with React, Redux & TypeScript with Linting [css build]
 
+## check different builds in branches
+
 A bare minimum react-hooks-redux-webpack-typescript boilerplate with TodoMVC example.
 
 Note that this project does not include **Server-Side Rendering**, **Static code analysis**, **Testing Frameworks**
