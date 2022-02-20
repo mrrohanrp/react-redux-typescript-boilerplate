@@ -16,7 +16,7 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   context: sourcePath,
   entry: {
-    app: './index.tsx'
+    app: './index.jsx'
   },
   output: {
     path: outPath,
@@ -38,14 +38,13 @@ module.exports = {
   },
   module: {
     rules: [
-      // .ts, .tsx
+      // .js, .jsx
       {
-        test: /\.tsx?$/,
+        test: /\.jsx?$/,
         use: [
           !isProduction && {
             loader: 'babel-loader'
-          },
-          'ts-loader'
+          }
         ].filter(Boolean)
       },
       // css

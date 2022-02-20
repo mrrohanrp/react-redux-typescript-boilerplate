@@ -7,7 +7,6 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
@@ -24,7 +23,7 @@
       "flowVersion": "0.53" // Flow version
     }
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "react-hooks", "prettier"],
   "globals": {
     "React": "readonly",
     "JSX": "readonly"
@@ -34,7 +33,7 @@
   "rules": {
     // no variable declaration
     "no-var": "error",
-    // "no-undef": "error", //for Typescript interface/types
+    "no-undef": "error",
     "prefer-destructuring": "warn",
     /** React Standard (https://github.com/yannickcr/eslint-plugin-react) */
     "react/jsx-key": [
@@ -86,12 +85,6 @@
     ],
     // react hooks
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    // typescript
-    "react/prop-types": "off",
-    "@typescript-eslint/no-unused-vars": "error",
-    // to enforce using type for object type definitions, can be type or interface
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off" //type inference
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

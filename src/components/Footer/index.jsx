@@ -3,28 +3,14 @@ import { Filter } from 'src/models';
 import classNames from 'classnames';
 import style from './style.module.css';
 
-export interface IProps {
-  filter: Filter;
-  activeCount?: number;
-  completedCount?: number;
-  onClickFilter: (filter: Filter) => unknown;
-  onClickClearCompleted: () => unknown;
-}
-
 export const FILTER_TITLES = {
   [Filter.SHOW_ALL]: 'All',
   [Filter.SHOW_ACTIVE]: 'Active',
   [Filter.SHOW_COMPLETED]: 'Completed'
 };
 
-export const Footer = ({
-  filter,
-  activeCount,
-  completedCount,
-  onClickFilter,
-  onClickClearCompleted
-}: IProps): JSX.Element => {
-  const renderTodoCount = React.useCallback((): JSX.Element => {
+export const Footer = ({ filter, activeCount, completedCount, onClickFilter, onClickClearCompleted }) => {
+  const renderTodoCount = React.useCallback(() => {
     const itemWord = activeCount === 1 ? ' item' : 'items';
     return (
       <span className={style.count}>
@@ -34,7 +20,7 @@ export const Footer = ({
   }, [activeCount]);
 
   const renderFilterLink = React.useCallback(
-    (selectedFilter: Filter): JSX.Element => {
+    (selectedFilter) => {
       return (
         <a
           className={classNames({ [style.selected]: filter === selectedFilter })}
@@ -48,7 +34,7 @@ export const Footer = ({
     [filter, onClickFilter]
   );
 
-  const renderClearButton = React.useCallback((): JSX.Element | void => {
+  const renderClearButton = React.useCallback(() => {
     if (completedCount) {
       return (
         <button className={style.clearCompleted} onClick={onClickClearCompleted}>
@@ -62,7 +48,7 @@ export const Footer = ({
     <footer className={style.normal}>
       {renderTodoCount()}
       <ul className={style.filters}>
-        {(Object.keys(Filter) as (keyof typeof Filter)[]).map((key) => (
+        {Object.keys(Filter).map((key) => (
           <li key={key}>{renderFilterLink(Filter[key])}</li>
         ))}
       </ul>
