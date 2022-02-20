@@ -38,9 +38,9 @@ module.exports = {
   },
   module: {
     rules: [
-      // .ts, .tsx
+      // .ts, .js
       {
-        test: /\.tsx?$/,
+        test: /\.(js|mjs|jsx|ts|tsx)$/,
         use: [
           !isProduction && {
             loader: 'babel-loader'
@@ -48,9 +48,9 @@ module.exports = {
           'ts-loader'
         ].filter(Boolean)
       },
-      // css
+      // scss
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
@@ -58,7 +58,10 @@ module.exports = {
             options: {
               sourceMap: !isProduction,
               importLoaders: 1,
+              // modules support
+              // https://webpack.js.org/loaders/css-loader/#boolean-3
               modules: {
+                auto: true,
                 localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
               }
             }
@@ -67,7 +70,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                ident: 'postcss',
+                ident: 'postcss-scss',
                 plugins: [
                   require('postcss-import')({ addDependencyTo: webpack }),
                   require('postcss-url')(),
@@ -81,6 +84,12 @@ module.exports = {
                   })
                 ]
               }
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: !isProduction
             }
           }
         ]

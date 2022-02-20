@@ -1,4 +1,6 @@
-# Frontend Boilerplate with React, Redux & TypeScript with Linting [css build]
+# Frontend Boilerplate with React, Redux & TypeScript with Linting [scss build]
+
+## check different builds in branches
 
 A bare minimum react-hooks-redux-webpack-typescript boilerplate with TodoMVC example.
 

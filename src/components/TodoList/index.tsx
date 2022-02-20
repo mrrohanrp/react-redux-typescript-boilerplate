@@ -3,7 +3,7 @@ import { useAppDispatch } from 'src/store/hooks';
 import { COMPLETEALL } from 'src/store/todoSlice';
 import { TodoItem } from '../TodoItem';
 import { TodoModel } from 'src/models/TodoModel';
-import style from './style.css';
+import style from './style.module.scss';
 
 export interface IProps {
   todos: TodoModel[];

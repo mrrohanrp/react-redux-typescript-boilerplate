@@ -4,7 +4,7 @@ import { useAppDispatch } from 'src/store/hooks';
 import { COMPLETETODO, DELETETODO, EDITTODO } from 'src/store/todoSlice';
 import { TodoModel } from 'src/models';
 import { TodoTextInput } from '../TodoTextInput';
-import style from './style.css';
+import style from './style.module.scss';
 
 export interface IProps {
   todo: TodoModel;
@@ -37,7 +37,7 @@ export const TodoItem = ({ todo }: IProps) => {
   });
 
   return (
-    <li className={classes}>
+    <li className={`${classes} log`}>
       {editing ? (
         <TodoTextInput onSave={(text) => todo.id && handleSave(todo.id, text)} />
       ) : (

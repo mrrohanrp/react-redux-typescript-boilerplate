@@ -1,7 +1,7 @@
 import React from 'react';
 import { Filter } from 'src/models';
 import classNames from 'classnames';
-import style from './style.css';
+import style from './style.module.scss';
 
 export interface IProps {
   filter: Filter;

@@ -7,7 +7,7 @@ import { CLEARCOMPLETED } from 'src/store/todoSlice';
 import { Filter, TodoModel } from 'src/models';
 import { Header, TodoList, Footer } from 'src/components';
 
-import style from './HomePage.css';
+import style from './HomePage.module.scss';
 
 const FILTER_VALUES = (Object.keys(Filter) as (keyof typeof Filter)[]).map((key) => Filter[key]);
 
