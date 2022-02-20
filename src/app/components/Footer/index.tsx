@@ -1,20 +1,20 @@
 import React from 'react';
+import { Filter } from 'app/models';
 import style from './style.css';
 import classNames from 'classnames';
-import { TodoModel } from 'app/models';
 
 export interface IProps {
-  filter: TodoModel.Filter;
+  filter: Filter;
   activeCount?: number;
   completedCount?: number;
-  onClickFilter: (filter: TodoModel.Filter) => any;
+  onClickFilter: (filter: Filter) => any;
   onClickClearCompleted: () => any;
 }
 
 export const FILTER_TITLES = {
-  [TodoModel.Filter.SHOW_ALL]: 'All',
-  [TodoModel.Filter.SHOW_ACTIVE]: 'Active',
-  [TodoModel.Filter.SHOW_COMPLETED]: 'Completed'
+  [Filter.SHOW_ALL]: 'All',
+  [Filter.SHOW_ACTIVE]: 'Active',
+  [Filter.SHOW_COMPLETED]: 'Completed'
 };
 
 export const Footer = ({
@@ -34,31 +34,36 @@ export const Footer = ({
   }, [activeCount]);
 
   const renderFilterLink = React.useCallback(
-    (selectedFilter: TodoModel.Filter): JSX.Element => {
+    (selectedFilter: Filter): JSX.Element => {
       return (
         <a
           className={classNames({ [style.selected]: filter === selectedFilter })}
           style={{ cursor: 'pointer' }}
           onClick={() => onClickFilter(selectedFilter)}
-          children={FILTER_TITLES[selectedFilter]}
-        />
+        >
+          {FILTER_TITLES[selectedFilter]}
+        </a>
       );
     },
     [filter, onClickFilter]
   );
 
   const renderClearButton = React.useCallback((): JSX.Element | void => {
-    if (completedCount! > 0) {
-      return <button className={style.clearCompleted} onClick={onClickClearCompleted} children={'Clear completed'} />;
+    if (completedCount) {
+      return (
+        <button className={style.clearCompleted} onClick={onClickClearCompleted}>
+          {'Clear completed'}
+        </button>
+      );
     }
-  }, [completedCount]);
+  }, [completedCount, onClickClearCompleted]);
 
   return (
     <footer className={style.normal}>
       {renderTodoCount()}
       <ul className={style.filters}>
-        {(Object.keys(TodoModel.Filter) as (keyof typeof TodoModel.Filter)[]).map((key) => (
-          <li key={key} children={renderFilterLink(TodoModel.Filter[key])} />
+        {(Object.keys(Filter) as (keyof typeof Filter)[]).map((key) => (
+          <li key={key}>{renderFilterLink(Filter[key])}</li>
         ))}
       </ul>
       {renderClearButton()}

@@ -40,7 +40,7 @@ export const TodoTextInput = ({ placeholder, newTodo, onSave }: IProps): JSX.Ele
         onSave(text);
       }
     },
-    [onSave]
+    [onSave, newTodo]
   );
 
   const classes = classNames(

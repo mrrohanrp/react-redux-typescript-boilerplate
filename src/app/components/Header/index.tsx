@@ -1,17 +1,16 @@
 import React from 'react';
+import { useAppDispatch } from 'app/store/hooks';
+import { ADDTODO } from 'app/store/todoSlice';
 import { TodoTextInput } from '../TodoTextInput';
-import { TodoActions } from 'app/store/actionTypes';
 
-export interface IProps {
-  addTodo: typeof TodoActions.addTodo;
-}
+export const Header = (): JSX.Element => {
+  const dispatch = useAppDispatch();
 
-export const Header = ({ addTodo }: IProps): JSX.Element => {
   const handleSave = React.useCallback(
     (text: string) => {
-      if (text.length) addTodo({ text });
+      if (text.length) dispatch(ADDTODO({ text: text }));
     },
-    [addTodo]
+    [dispatch]
   );
 
   return (

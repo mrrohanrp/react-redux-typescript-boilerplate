@@ -1,34 +1,12 @@
-/* eslint-disable */
-import { Store, createStore, applyMiddleware } from 'redux';
-import { Middleware } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import todoReducer from './todoSlice';
 
-import { RootState, rootReducer } from 'app/store/reducers';
-
-/** Logger */
-export const logger: Middleware = (store) => (next) => (action) => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log(action);
+export const store = configureStore({
+  reducer: {
+    todos: todoReducer
   }
-  return next(action);
-};
+});
 
-export function configureStore(initialState?: RootState): Store<RootState> {
-  let middleware = applyMiddleware(thunk, logger);
-
-  if (process.env.NODE_ENV !== 'production') {
-    middleware = composeWithDevTools(middleware);
-  }
-
-  const store = createStore(rootReducer as any, initialState as any, middleware) as Store<RootState>;
-
-  if (module.hot) {
-    module.hot.accept('app/reducers', () => {
-      const nextReducer = require('app/reducers');
-      store.replaceReducer(nextReducer);
-    });
-  }
-
-  return store;
-}
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;

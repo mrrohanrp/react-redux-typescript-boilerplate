@@ -1,30 +1,30 @@
 import React from 'react';
+import { useAppDispatch } from 'app/store/hooks';
+import { COMPLETEALL } from 'app/store/todoSlice';
 import style from './style.css';
-import { TodoActions } from 'app/store/actionTypes';
 import { TodoItem } from '../TodoItem';
 import { TodoModel } from 'app/models/TodoModel';
 
 export interface IProps {
   todos: TodoModel[];
-  actions: TodoActions;
 }
 
-export const TodoList = ({ todos, actions }: IProps): JSX.Element => {
-  const hasIncompleted = React.useMemo(() => todos.some((todo) => !todo.completed), []);
+export const TodoList = ({ todos }: IProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const hasIncompleted = React.useMemo(() => todos.some((todo) => !todo.completed), [todos]);
   return (
     <section className={style.main}>
       {hasIncompleted && (
-        <input className={style.toggleAll} type="checkbox" checked={hasIncompleted} onChange={actions.completeAll} />
+        <input
+          className={style.toggleAll}
+          type="checkbox"
+          checked={hasIncompleted}
+          onChange={() => dispatch(COMPLETEALL())}
+        />
       )}
       <ul className={style.normal}>
         {todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            completeTodo={actions.completeTodo}
-            deleteTodo={actions.deleteTodo}
-            editTodo={actions.editTodo}
-          />
+          <TodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
     </section>
