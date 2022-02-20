@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TodoModel } from 'app/models';
+import { TodoModel } from 'src/models';
 
 export type TodoState = TodoModel[];
 

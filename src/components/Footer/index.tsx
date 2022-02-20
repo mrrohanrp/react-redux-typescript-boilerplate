@@ -1,14 +1,14 @@
 import React from 'react';
-import { Filter } from 'app/models';
-import style from './style.css';
+import { Filter } from 'src/models';
 import classNames from 'classnames';
+import style from './style.css';
 
 export interface IProps {
   filter: Filter;
   activeCount?: number;
   completedCount?: number;
-  onClickFilter: (filter: Filter) => any;
-  onClickClearCompleted: () => any;
+  onClickFilter: (filter: Filter) => unknown;
+  onClickClearCompleted: () => unknown;
 }
 
 export const FILTER_TITLES = {

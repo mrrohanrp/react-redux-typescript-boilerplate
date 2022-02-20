@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { store } from 'app/store/store';
+import { store } from './store/store';
 import { BrowserRouter } from 'react-router-dom';
-import { App } from './app';
+import { App } from './App';
 
 ReactDOM.render(
   <Provider store={store}>

@@ -13,9 +13,9 @@
     "strict": true,
     "outDir": "build",
     "lib": ["es6", "es7", "dom"],
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "app/*": ["./app/*"]
+      "src/*": ["./src/*"]
     },
     "allowSyntheticDefaultImports": true
   },

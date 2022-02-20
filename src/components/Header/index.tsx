@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAppDispatch } from 'app/store/hooks';
-import { ADDTODO } from 'app/store/todoSlice';
+import { useAppDispatch } from 'src/store/hooks';
+import { ADDTODO } from 'src/store/todoSlice';
 import { TodoTextInput } from '../TodoTextInput';
 
 export const Header = (): JSX.Element => {

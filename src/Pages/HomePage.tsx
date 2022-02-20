@@ -1,11 +1,13 @@
 import React from 'react';
-import { RootState } from 'app/store/store';
-import { useAppDispatch, useAppSelector } from 'app/store/hooks';
-import { CLEARCOMPLETED } from 'app/store/todoSlice';
-import style from './style.css';
-import { Filter, TodoModel } from 'app/models';
-import { Header, TodoList, Footer } from 'app/components';
 import { useNavigate } from 'react-router-dom';
+
+import { RootState } from 'src/store/store';
+import { useAppDispatch, useAppSelector } from 'src/store/hooks';
+import { CLEARCOMPLETED } from 'src/store/todoSlice';
+import { Filter, TodoModel } from 'src/models';
+import { Header, TodoList, Footer } from 'src/components';
+
+import style from './HomePage.css';
 
 const FILTER_VALUES = (Object.keys(Filter) as (keyof typeof Filter)[]).map((key) => Filter[key]);
 

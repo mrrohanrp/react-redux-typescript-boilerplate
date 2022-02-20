@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAppDispatch } from 'app/store/hooks';
-import { COMPLETEALL } from 'app/store/todoSlice';
-import style from './style.css';
+import { useAppDispatch } from 'src/store/hooks';
+import { COMPLETEALL } from 'src/store/todoSlice';
 import { TodoItem } from '../TodoItem';
-import { TodoModel } from 'app/models/TodoModel';
+import { TodoModel } from 'src/models/TodoModel';
+import style from './style.css';
 
 export interface IProps {
   todos: TodoModel[];

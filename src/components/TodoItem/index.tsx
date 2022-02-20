@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from 'app/store/hooks';
-import { COMPLETETODO, DELETETODO, EDITTODO } from 'app/store/todoSlice';
 import classNames from 'classnames';
-import style from './style.css';
-import { TodoModel } from 'app/models';
+import { useAppDispatch } from 'src/store/hooks';
+import { COMPLETETODO, DELETETODO, EDITTODO } from 'src/store/todoSlice';
+import { TodoModel } from 'src/models';
 import { TodoTextInput } from '../TodoTextInput';
+import style from './style.css';
 
 export interface IProps {
   todo: TodoModel;
