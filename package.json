@@ -1,7 +1,7 @@
 {
-  "name": "react-hooks-redux-typescript-boilerplate",
+  "name": "react-hooks-redux-typescript-css-with-linters-boilerplate",
   "version": "1.1.1",
-  "description": "A frontend boilerplate with React hooks, Redux and Typescript",
+  "description": "A frontend boilerplate with React hooks, Redux and Typescript with linters",
   "homepage": "https://mrrohanrp.github.io/react-redux-typescript-boilerplate",
   "keywords": [
     "react",
@@ -9,7 +9,8 @@
     "redux",
     "typescript",
     "boilerplate",
-    "todomvc"
+    "todomvc",
+    "linters"
   ],
   "main": "index.tsx",
   "author": "mrrohanrp",
@@ -54,7 +55,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.6.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
@@ -91,9 +92,14 @@
       "eslint --cache --fix",
       "prettier --write"
     ],
-    "**/*.{scss,css}": [
+    "src/**/*.{scss,css}": [
       "stylelint --cache --fix",
       "prettier --write"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.1%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

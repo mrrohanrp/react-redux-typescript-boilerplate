@@ -1,3 +1,4 @@
+/* eslint-disable */
 import 'react-redux';
 import { ComponentType } from 'react';
 

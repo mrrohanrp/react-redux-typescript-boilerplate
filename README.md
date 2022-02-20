@@ -1,4 +1,4 @@
-# Frontend Boilerplate with React, Redux & TypeScript
+# Frontend Boilerplate with React, Redux & TypeScript with Linting [css build]
 
 A bare minimum react-hooks-redux-webpack-typescript boilerplate with TodoMVC example.
 
@@ -11,11 +11,13 @@ Ideal for creating React apps from the scratch.
 
 - [x] [Typescript](https://www.typescriptlang.org/) 4.5
 - [x] [React](https://facebook.github.io/react/) 17
-- [x] [Redux](https://github.com/reactjs/redux) 4
-- [x] [Redux Thunk](https://github.com/reduxjs/redux-thunk) 2.4
+- [x] [@reduxjs/toolkit](https://redux-toolkit.js.org/) 1.7
 - [x] [React Router Dom](https://github.com/remix-run/react-router) 6.2
-- [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [x] [TodoMVC example](http://todomvc.com)
+- [x] [ESLint](https://eslint.org/)
+- [x] [StyleLint](https://stylelint.io/)
+- [x] [Prettier](https://prettier.io/)
+- [x] [Husky + Lint-Staged](https://github.com/okonet/lint-staged#readme)
 
 ### Build tools
 
@@ -47,12 +49,22 @@ $ npm start
 $ npm run build
 ```
 
+## Lint
+
+```
+$ npm run lintall
+```
+
+## Lint and Fix
+
+```
+$ npm run lintall:Fix
+```
+
 ## Deploy (to the [GitHub Pages](https://pages.github.com/))
 
 ```
 $ npm run deploy
 ```
 
-# License
-
-MIT
+## CREDIT: [rokoroku](https://github.com/rokoroku/react-redux-typescript-boilerplate)
