@@ -138,7 +138,8 @@ module.exports = {
       meta: {
         title: package.name,
         description: package.description,
-        keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined
+        keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined,
+        favicon: `${sourcePath}/assets/favicon.ico`
       }
     })
   ].filter(Boolean),
