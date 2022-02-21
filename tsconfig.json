@@ -17,7 +17,8 @@
     "paths": {
       "src/*": ["./src/*"]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true
   },
   "exclude": ["build", "node_modules"]
 }
