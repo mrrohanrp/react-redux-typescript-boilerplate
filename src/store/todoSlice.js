@@ -1,9 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TodoModel } from 'src/models';
+import { createSlice } from '@reduxjs/toolkit';
 
-export type TodoState = TodoModel[];
-
-const initialState: TodoState = [
+const initialState = [
   {
     id: 1,
     text: 'Use Redux',
@@ -27,7 +24,7 @@ export const todoSlice = createSlice({
   initialState,
   //* The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    ADDTODO: (state, action: PayloadAction<PartialPick<TodoModel, 'text'>>) => {
+    ADDTODO: (state, action) => {
       //* Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
@@ -41,8 +38,8 @@ export const todoSlice = createSlice({
     },
 
     //* Use the PayloadAction type to declare the contents of `action.payload`
-    EDITTODO: (state, action: PayloadAction<PartialPick<TodoModel, 'id' | 'text'>>) => {
-      return state.map((todo: TodoModel) => {
+    EDITTODO: (state, action) => {
+      return state.map((todo) => {
         if (!todo || !action || !action.payload) {
           return todo;
         }
@@ -50,11 +47,11 @@ export const todoSlice = createSlice({
       });
     },
 
-    DELETETODO: (state, action: PayloadAction<TodoModel['id']>) => {
+    DELETETODO: (state, action) => {
       return state.filter((todo) => todo.id !== action.payload);
     },
 
-    COMPLETETODO: (state, action: PayloadAction<TodoModel['id']>) => {
+    COMPLETETODO: (state, action) => {
       return state.map((todo) => (todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo));
     },
 

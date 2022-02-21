@@ -43,7 +43,10 @@ module.exports = {
         test: /\.jsx?$/,
         use: [
           !isProduction && {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react']
+            }
           }
         ].filter(Boolean)
       },
@@ -137,7 +140,8 @@ module.exports = {
       meta: {
         title: package.name,
         description: package.description,
-        keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined
+        keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined,
+        favicon: `${sourcePath}/assets/favicon.ico`
       }
     })
   ].filter(Boolean),

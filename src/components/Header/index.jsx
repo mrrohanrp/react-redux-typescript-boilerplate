@@ -1,13 +1,14 @@
 import React from 'react';
-import { useAppDispatch } from 'src/store/hooks';
+import { useDispatch } from 'react-redux';
+
 import { ADDTODO } from 'src/store/todoSlice';
 import { TodoTextInput } from '../TodoTextInput';
 
-export const Header = (): JSX.Element => {
-  const dispatch = useAppDispatch();
+export const Header = () => {
+  const dispatch = useDispatch();
 
   const handleSave = React.useCallback(
-    (text: string) => {
+    (text) => {
       if (text.length) dispatch(ADDTODO({ text: text }));
     },
     [dispatch]

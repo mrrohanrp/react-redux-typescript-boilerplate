@@ -1,17 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState } from 'src/store/store';
-import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 import { CLEARCOMPLETED } from 'src/store/todoSlice';
-import { Filter, TodoModel } from 'src/models';
+import { Filter } from 'src/utils/Filter';
 import { Header, TodoList, Footer } from 'src/components';
 
 import style from './HomePage.module.css';
 
-const FILTER_VALUES = (Object.keys(Filter) as (keyof typeof Filter)[]).map((key) => Filter[key]);
+const FILTER_VALUES = Object.keys(Filter).map((key) => Filter[key]);
 
-const FILTER_FUNCTIONS: Record<Filter, (todo: TodoModel) => boolean> = {
+const FILTER_FUNCTIONS = {
   [Filter.SHOW_ALL]: () => true,
   [Filter.SHOW_ACTIVE]: (todo) => !todo.completed,
   [Filter.SHOW_COMPLETED]: (todo) => todo.completed
@@ -20,9 +19,9 @@ const FILTER_FUNCTIONS: Record<Filter, (todo: TodoModel) => boolean> = {
 const App = () => {
   const navigate = useNavigate();
 
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
-  const { todos, filter } = useAppSelector((state: RootState) => {
+  const { todos, filter } = useSelector((state) => {
     const hash = location?.hash?.replace('#', '');
     return {
       todos: state.todos,
@@ -30,20 +29,20 @@ const App = () => {
     };
   });
 
-  const handleClearCompleted = React.useCallback((): void => {
+  const handleClearCompleted = React.useCallback(() => {
     dispatch(CLEARCOMPLETED());
   }, [dispatch]);
 
   const handleFilterChange = React.useCallback(
-    (filter: Filter): void => {
+    (filter) => {
       navigate(`#${filter}`);
     },
     [navigate]
   );
 
   const filteredTodos = React.useMemo(() => (filter ? todos.filter(FILTER_FUNCTIONS[filter]) : todos), [todos, filter]);
-  const activeCount = React.useMemo(() => todos.filter((todo: TodoModel) => !todo.completed).length, [todos]);
-  const completedCount = React.useMemo(() => todos.filter((todo: TodoModel) => todo.completed).length, [todos]);
+  const activeCount = React.useMemo(() => todos.filter((todo) => !todo.completed).length, [todos]);
+  const completedCount = React.useMemo(() => todos.filter((todo) => todo.completed).length, [todos]);
 
   return (
     <div className={style.normal}>

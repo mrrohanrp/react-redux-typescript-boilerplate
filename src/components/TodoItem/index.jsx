@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useAppDispatch } from 'src/store/hooks';
+import { useDispatch } from 'react-redux';
+
 import { COMPLETETODO, DELETETODO, EDITTODO } from 'src/store/todoSlice';
-import { TodoModel } from 'src/models';
 import { TodoTextInput } from '../TodoTextInput';
+
 import style from './style.module.css';
 
-export interface IProps {
-  todo: TodoModel;
-}
-
-export const TodoItem = ({ todo }: IProps) => {
-  const dispatch = useAppDispatch();
+const TodoItem = ({ todo }) => {
+  const dispatch = useDispatch();
   const [editing, setEditing] = useState(false);
 
   const handleDoubleClick = React.useCallback(() => {
@@ -19,7 +17,7 @@ export const TodoItem = ({ todo }: IProps) => {
   }, [setEditing]);
 
   const handleSave = React.useCallback(
-    (id: number, text: string) => {
+    (id, text) => {
       if (text.length === 0) {
         dispatch(DELETETODO(id));
       } else {
@@ -60,3 +58,13 @@ export const TodoItem = ({ todo }: IProps) => {
     </li>
   );
 };
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.number,
+    text: PropTypes.string,
+    completed: PropTypes.bool
+  }).isRequired
+};
+
+export { TodoItem };

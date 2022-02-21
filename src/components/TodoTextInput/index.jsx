@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import style from './style.module.css';
 
-export interface IProps {
-  placeholder?: string;
-  newTodo?: boolean;
-  onSave: (text: string) => void;
-}
-
-export interface IState {
-  text: string;
-}
-
-export const TodoTextInput = ({ placeholder, newTodo, onSave }: IProps): JSX.Element => {
+const TodoTextInput = ({ placeholder, newTodo, onSave }) => {
   const [inputText, setInputText] = useState('');
 
   const handleSubmit = React.useCallback(
-    (event: React.KeyboardEvent<HTMLInputElement>) => {
+    (event) => {
       const text = event.currentTarget.value.trim();
       if (event.which === 13) {
         onSave(text);
@@ -27,14 +19,14 @@ export const TodoTextInput = ({ placeholder, newTodo, onSave }: IProps): JSX.Ele
   );
 
   const handleChange = React.useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (event) => {
       setInputText(event.target.value);
     },
     [setInputText]
   );
 
   const handleBlur = React.useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (event) => {
       const text = event.currentTarget.value.trim();
       if (!newTodo) {
         onSave(text);
@@ -64,3 +56,11 @@ export const TodoTextInput = ({ placeholder, newTodo, onSave }: IProps): JSX.Ele
     />
   );
 };
+
+TodoTextInput.propTypes = {
+  newTodo: PropTypes.bool.isRequired,
+  onSave: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired
+};
+
+export { TodoTextInput };

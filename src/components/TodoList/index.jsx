@@ -1,16 +1,14 @@
 import React from 'react';
-import { useAppDispatch } from 'src/store/hooks';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+
 import { COMPLETEALL } from 'src/store/todoSlice';
 import { TodoItem } from '../TodoItem';
-import { TodoModel } from 'src/models/TodoModel';
+
 import style from './style.module.css';
 
-export interface IProps {
-  todos: TodoModel[];
-}
-
-export const TodoList = ({ todos }: IProps): JSX.Element => {
-  const dispatch = useAppDispatch();
+const TodoList = ({ todos }) => {
+  const dispatch = useDispatch();
   const hasIncompleted = React.useMemo(() => todos.some((todo) => !todo.completed), [todos]);
   return (
     <section className={style.main}>
@@ -30,3 +28,15 @@ export const TodoList = ({ todos }: IProps): JSX.Element => {
     </section>
   );
 };
+
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      text: PropTypes.string,
+      completed: PropTypes.bool
+    })
+  ).isRequired
+};
+
+export { TodoList };

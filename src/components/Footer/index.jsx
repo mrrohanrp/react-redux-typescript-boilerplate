@@ -1,6 +1,9 @@
 import React from 'react';
-import { Filter } from 'src/models';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+import { Filter } from 'src/utils/Filter';
+
 import style from './style.module.css';
 
 export const FILTER_TITLES = {
@@ -9,7 +12,7 @@ export const FILTER_TITLES = {
   [Filter.SHOW_COMPLETED]: 'Completed'
 };
 
-export const Footer = ({ filter, activeCount, completedCount, onClickFilter, onClickClearCompleted }) => {
+const Footer = ({ filter, activeCount, completedCount, onClickFilter, onClickClearCompleted }) => {
   const renderTodoCount = React.useCallback(() => {
     const itemWord = activeCount === 1 ? ' item' : 'items';
     return (
@@ -56,3 +59,13 @@ export const Footer = ({ filter, activeCount, completedCount, onClickFilter, onC
     </footer>
   );
 };
+
+Footer.propTypes = {
+  filter: PropTypes.string.isRequired,
+  activeCount: PropTypes.number.isRequired,
+  completedCount: PropTypes.number.isRequired,
+  onClickFilter: PropTypes.func.isRequired,
+  onClickClearCompleted: PropTypes.func.isRequired
+};
+
+export { Footer };
