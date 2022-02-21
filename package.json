@@ -1,7 +1,7 @@
 {
-  "name": "react-hooks-redux-typescript-css-with-linters-boilerplate",
-  "version": "1.1.1",
-  "description": "A frontend boilerplate with React hooks, Redux and Typescript with linters",
+  "name": "react-hooks-redux-javascript-css-with-linters-boilerplate",
+  "version": "1.0.0",
+  "description": "A frontend boilerplate with React hooks, Redux and Javascript with linters",
   "homepage": "https://mrrohanrp.github.io/react-redux-typescript-boilerplate",
   "keywords": [
     "react",
@@ -14,7 +14,7 @@
   ],
   "main": "index.jsx",
   "author": "mrrohanrp",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
