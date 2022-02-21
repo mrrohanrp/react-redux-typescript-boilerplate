@@ -1,4 +1,4 @@
-# Frontend Boilerplate with React, Redux & JavaScript with Linting [css build]
+# Frontend Boilerplate with React, Redux & JavaScript with Linting [scss build]
 
 ## check different builds in branches
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import style from './style.module.css';
+import style from './style.module.scss';
 
 const TodoTextInput = ({ placeholder, newTodo, onSave }) => {
   const [inputText, setInputText] = useState('');
